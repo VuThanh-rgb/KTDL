@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Đăng nhập – KNN Movies</title>
+  <script src="/static/theme.js"></script>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body class="login-body">
+  <div class="seg floating" id="themeSeg" role="group" aria-label="Giao diện">
+    <button type="button" data-t="light" title="Sáng">☀️</button>
+    <button type="button" data-t="dark" title="Tối">🌙</button>
+    <button type="button" data-t="system" title="Theo hệ thống">💻</button>
+  </div>
+  <main class="login-card">
+    <div class="login-art">🎬 🍿 ⭐ 🎞️</div>
+    <h1>KNN<span class="grad">Movies</span></h1>
+    <p class="dim center">Đăng nhập để nhận gợi ý phim dành riêng cho bạn</p>
+
+    <div class="roletabs" role="tablist">
+      <button type="button" class="on" data-role="user" role="tab">👤 Người dùng</button>
+      <button type="button" data-role="admin" role="tab">🛡️ Quản trị viên</button>
+    </div>
+
+    <div class="seg modeseg" id="modeSeg">
+      <button type="button" class="on" data-mode="login">Đăng nhập</button>
+      <button type="button" data-mode="register">Tạo tài khoản</button>
+    </div>
+
+    <form id="form" novalidate>
+      <label>Tên đăng nhập <input id="username" autocomplete="username" maxlength="64" required></label>
+      <label>Mật khẩu <input id="password" type="password" autocomplete="current-password" maxlength="128" required></label>
+      <label id="confirmWrap" hidden>Nhập lại mật khẩu <input id="confirm" type="password" autocomplete="new-password" maxlength="128"></label>
+      <button class="btn wide" id="submit" type="submit">Đăng nhập</button>
+      <p id="msg" class="msg" role="alert" hidden></p>
+    </form>
+    <p class="dim center small" id="hint"></p>
+  </main>
+  <script src="/static/login.js"></script>
+</body>
+</html>

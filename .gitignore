@@ -1,0 +1,25 @@
+# Virtual environment
+.venv/
+venv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Secret files
+.env
+secret_key
+
+# IDE
+.vscode/
+.idea/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Dataset (nếu không muốn đẩy dữ liệu)
+data/
+
+# OS
+.DS_Store
+Thumbs.db

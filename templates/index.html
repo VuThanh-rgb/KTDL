@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>KNN Movies – Gợi ý phim</title>
+  <script src="/static/theme.js"></script>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header class="nav">
+  <button id="menuBtn" class="icon" aria-label="Mở/đóng menu" aria-expanded="false" aria-controls="drawer">☰</button>
+  <div class="logo">🎬 KNN<span class="grad">Movies</span></div>
+  <span class="spacer"></span>
+  <span id="roleChip" class="rolechip"></span>
+</header>
+
+<div id="overlay" class="overlay" hidden></div>
+<aside id="drawer" class="drawer" aria-hidden="true">
+  <div class="who"><div class="avatar" id="avatar">?</div>
+    <div><b id="whoName">…</b><div class="dim small" id="whoRole"></div></div></div>
+  <nav class="side">
+    <button data-view="explore" class="on">🧭 Khám phá</button>
+    <button data-view="profile">💜 Gu của bạn <b id="likeCount">0</b></button>
+    <button data-view="lab" data-admin hidden>🧪 Thử nghiệm</button>
+    <button data-view="admin" data-admin hidden>🛡️ Quản trị</button>
+  </nav>
+  <div class="theme">
+    <div class="dim small">Giao diện</div>
+    <div class="seg" id="themeSeg" role="group" aria-label="Giao diện">
+      <button type="button" data-t="light">☀️ Sáng</button>
+      <button type="button" data-t="dark">🌙 Tối</button>
+      <button type="button" data-t="system">💻 Hệ thống</button>
+    </div>
+  </div>
+  <button id="logout" class="btn ghost wide">🚪 Đăng xuất</button>
+</aside>
+
+<main>
+  <section id="view-explore" class="view">
+    <div class="hero">
+      <h1>Hôm nay bạn muốn xem gì?</h1>
+      <p>Tìm một bộ phim bạn thích, hệ thống sẽ gợi ý những phim tương tự bằng thuật toán KNN.</p>
+      <div class="search"><input id="q" placeholder="Gõ tên phim... (vd: Toy Story)" autocomplete="off"><div id="sug" class="sugbox" hidden></div></div>
+    </div>
+    <div id="rows"></div>
+  </section>
+
+  <section id="view-profile" class="view" hidden>
+    <h2>Cho mình biết gu của bạn</h2>
+    <p class="dim">Thêm vài phim bạn thích (và không thích) rồi bấm gợi ý. Gu của bạn được lưu theo tài khoản.</p>
+    <div class="search"><input id="q2" placeholder="Tìm phim để thêm vào gu của bạn..." autocomplete="off"><div id="sug2" class="sugbox" hidden></div></div>
+    <div class="chips"><div><span class="dim">👍 Thích:</span> <span id="likedChips"></span></div>
+      <div><span class="dim">👎 Không thích:</span> <span id="dislikedChips"></span></div></div>
+    <button id="goProfile" class="btn">✨ Gợi ý cho tôi</button>
+    <div id="profileOut"></div>
+  </section>
+
+  <section id="view-lab" class="view" hidden>
+    <h2>Thử nghiệm theo mã người dùng MovieLens</h2>
+    <p class="dim">Dành cho quản trị viên: nhập một mã người dùng có sẵn trong dữ liệu để kiểm tra mô hình.</p>
+    <div class="form">
+      <label>Mã người dùng <input id="uid" type="number" value="1"></label>
+      <label>Thuật toán <select id="mode"><option value="item">Item-based</option><option value="user">User-based</option></select></label>
+      <label>K <select id="kk"><option>5</option><option>10</option><option>20</option><option selected>50</option><option>100</option><option>200</option></select></label>
+      <button id="goUser" class="btn">Gợi ý</button>
+    </div>
+    <div id="userOut"></div>
+  </section>
+
+  <section id="view-admin" class="view" hidden>
+    <h2>Quản trị hệ thống</h2>
+    <div id="stats" class="stats"></div>
+    <h3>Tài khoản người dùng</h3>
+    <div class="tablewrap"><table id="usersTbl"><thead><tr><th>Tên đăng nhập</th><th>Ngày tạo</th><th>Phim đã thích</th><th></th></tr></thead><tbody></tbody></table></div>
+  </section>
+</main>
+
+<footer class="foot">Dữ liệu: MovieLens (GroupLens Research, University of Minnesota) · Thuật toán: KNN collaborative filtering
+  <span id="tmdb" hidden> · This product uses the TMDB API but is not endorsed or certified by TMDB.</span></footer>
+<div id="toast" class="toast" hidden></div>
+<script src="/static/app.js"></script>
+</body>
+</html>
