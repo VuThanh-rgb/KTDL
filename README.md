@@ -10,11 +10,11 @@ This project uses two datasets from GroupLens:
 
 ### MovieLens 100K
 - Download: https://grouplens.org/datasets/movielens/100k/
-- Description: 100,000 ratings from 943 users on 1,682 movies.
+- Description: MovieLens 100K movie ratings. Stable benchmark dataset. 100,000 ratings from 1000 users on 1700 movies. Released 4/1998.
 
 ### MovieLens 1M
 - Download: https://grouplens.org/datasets/movielens/1m/
-- Description: 1 million ratings from approximately 6,000 users on 4,000 movies.
+- Description: MovieLens 1M movie ratings. Stable benchmark dataset. 1 million ratings from 6000 users on 4000 movies. Released 2/2003.
 
 ## 3. Dataset Installation
 
